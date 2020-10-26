@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ $t("message")["app.dashboard.analysis.timeLabel"] }}:
+    {{ $t("messages")["app.dashboard.analysis.timeLabel"] }}:
     <a-date-picker></a-date-picker>
     <Chart :option="chartOption" style="height: 400px" />
     <pre v-highlightjs="ChartCode"><code class="html"></code></pre>
