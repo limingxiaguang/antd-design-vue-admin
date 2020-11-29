@@ -55,6 +55,12 @@ export default {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
     },
+    // 通过路由生成菜单的数据
+    /**
+     * @param {Array}  routes 路由的配置数据
+     * @param {Array} parentKeys 上一等级菜单
+     *@param {String} selectedKey 选中的 key
+     */
     getMenuData(routes = [], parentKeys = [], selectedKey) {
       const menuData = [];
       for (const item of routes) {
@@ -71,6 +77,7 @@ export default {
               item.path
             ]);
           } else {
+            // 给像分布表单一样的路由，在进行每一步时都选中父级菜单
             this.getMenuData(
               item.children,
               selectedKey ? parentKeys : [...parentKeys, item.path],
